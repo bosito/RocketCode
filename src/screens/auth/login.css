@@ -23,3 +23,8 @@
 .link{
     color: white;
 }
+
+.form__fromChat{
+    display: flex;
+    flex-direction: column;
+}

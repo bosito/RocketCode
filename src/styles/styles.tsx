@@ -95,11 +95,12 @@ display: flex;
 flex-direction: row;
 height: fit-content;
 margin-bottom: 20px;
+margin-top: 10px;
 `
 
 const ImageAdmin = styled.img`
-width: 70px;
-height: 70px;
+width: 60px;
+height: 60px;
 background-color: gray;
 border-radius: 50%;
 size: cover;
@@ -107,10 +108,20 @@ margin-right: 10px;
 `;
 
 const ContentForm = styled.div`
+display: flex;
+flex-direction: column;
 padding: 15px;
 padding-left: 30px;
 padding-right: 30px;
-background-color: ${porps => porps.id ? 'orange' : 'blue'};
+background-color: ${colors.blue};
+`;
+
+const InputRegister = styled.input`
+width: 200px;
+height: 20px;
+margin-top: 10px;
+margin-bottom: 5px;
+padding: 5px;
 `;
 
 export {
@@ -125,5 +136,6 @@ export {
     BodyRegister,
     ContentFormChat,
     ImageAdmin,
-    ContentForm
+    ContentForm,
+    InputRegister
 }
