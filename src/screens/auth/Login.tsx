@@ -18,7 +18,7 @@ export default function Login() {
 
 
             <div>
-
+                <p>wolas que hay</p>
             </div>
 
             <div className='icon_svg_left' >
