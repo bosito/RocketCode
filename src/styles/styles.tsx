@@ -1,10 +1,12 @@
-import styled, { StyledComponentBase } from 'styled-components';
+import styled from 'styled-components';
 import { colors } from '../core/constants';
 
 const ContainerFull = styled.div`
 background-color: ${colors.primary};
 width: 100%;
 height: 100vh;
+overflow: hidden;
+position: relative;
 `;
 
 const FelxFullCenter = styled.div`
@@ -55,8 +57,73 @@ const Adorno = styled.div`
  top: 50px;
  left: 300px;
  background-color: ${colors.blue};
+`;
+
+const HeaderRegister = styled.div`
+display: flex;
+flex-direction: row;
+align-items: center;
+padding-inline: 10px;
+width: 100%;
+height: 70px;
+`;
+
+const Title = styled.h2`
+color: ${colors.title};
+`;
+
+const SubTitle = styled.p`
+color: ${colors.title};
+font-size: 0.9rem;
+font-family: serif;
+font-weight: 100;
 `
 
+const BodyRegister = styled.div`
+display: flex;
+flex-direction: column;
+width: 100%;
+height: 100%;
+padding-left: 50px;
+padding-right: 50px;
+overflow-y: scroll;
+background-color:${colors.secondary};
+`
 
+const ContentFormChat = styled.div`
+display: flex;
+flex-direction: row;
+height: fit-content;
+margin-bottom: 20px;
+`
 
-export { ContainerFull, FelxFullCenter, CardLogin, SubmitButton, Adorno }
+const ImageAdmin = styled.img`
+width: 70px;
+height: 70px;
+background-color: gray;
+border-radius: 50%;
+size: cover;
+margin-right: 10px;
+`;
+
+const ContentForm = styled.div`
+padding: 15px;
+padding-left: 30px;
+padding-right: 30px;
+background-color: ${porps => porps.id ? 'orange' : 'blue'};
+`;
+
+export {
+    ContainerFull,
+    FelxFullCenter,
+    CardLogin,
+    SubmitButton,
+    Adorno,
+    HeaderRegister,
+    Title,
+    SubTitle,
+    BodyRegister,
+    ContentFormChat,
+    ImageAdmin,
+    ContentForm
+}
