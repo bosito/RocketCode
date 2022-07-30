@@ -1,21 +1,25 @@
 import { useState, FormEventHandler } from 'react';
-import { ContentFormChat, ImageAdmin, ContentForm, InputRegister, SubmitButton } from '../../styles/styles';
+import { ContentFormChat, ImageAdmin, ContentForm, InputRegister, SubmitButton, ResponseUser } from '../../styles/styles';
 import admin_test from '../../assets/images/admin_test.jpg';
 import { DataUser, DataContact, Cuestions } from '../../interfaces/intrfaces';
 
 interface Props {
     cuestion: string;
+    item: Cuestions;
     isReponse: boolean;
     type: number;
     focuse: boolean;
-    handleResponse: (item: Cuestions) => void;
+    handleResponse: (item: Cuestions, id: number) => void;
 }
 
 export default function FormChat(props: Props) {
-    const { cuestion, type, isReponse, focuse, handleResponse } = props;
+    const { cuestion, type, isReponse, focuse, handleResponse, item } = props;
 
     const [birthdays, setBirthdays] = useState<string>('');
     const [dataContact, setDataContact] = useState<DataContact>({ email: '', phone: '' });
+
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
 
     const [nombre, setNombre] = useState('');
     const [apellidoMaterno, setApellidoMaterno] = useState('');
@@ -33,8 +37,22 @@ export default function FormChat(props: Props) {
             segundo_nombre: segundoNombre
         };
 
-        console.log('data -->', data);
+        item.isResponse = true;
+        item.focuse = true;
+        
+        if (type === 0) {
+            item.responce = `${nombre} ${segundoNombre} ${apellidoPaterno} ${apellidoMaterno}`;
+        };
 
+        if (type === 1) {
+            item.responce = birthdays;
+        };
+
+        if (type === 2) {
+            item.responce = `${email} ${phone}`;
+        };
+
+        handleResponse(item, type);
     };
 
     if (!focuse) {
@@ -97,11 +115,22 @@ export default function FormChat(props: Props) {
                                     return (
                                         <>
                                             <InputRegister
-                                                type="text"
+                                                type="date"
                                                 placeholder='Fecha de Nacimiento'
+                                                required
                                                 value={birthdays}
                                                 onChange={(event) => setBirthdays(event.currentTarget.value)}
                                             />
+
+                                            {
+                                                isReponse ?
+                                                    null
+                                                    :
+                                                    <SubmitButton
+                                                        type="submit"
+                                                        value="Continuar"
+                                                    />
+                                            }
                                         </>
                                     );
                                 case 2:
@@ -111,16 +140,28 @@ export default function FormChat(props: Props) {
                                                 type="email"
                                                 placeholder='Correo electronico'
                                                 name='email'
-                                                value={dataContact.email}
-                                                onChange={(event) => setDataContact((state) => state = { ...state, [event.currentTarget.name]: event.currentTarget.value })}
+                                                required
+                                                value={email}
+                                                onChange={(event) => setEmail(event.currentTarget.value)}
                                             />
                                             <InputRegister
                                                 type="tel"
                                                 placeholder='Telefono calular'
                                                 name='phone'
-                                                value={dataContact.phone}
-                                                onChange={(event) => setDataContact((state) => state = { ...state, [event.currentTarget.name]: event.currentTarget.value })}
+                                                required
+                                                value={phone}
+                                                onChange={(event) => setPhone(event.currentTarget.value)}
                                             />
+
+                                            {
+                                                isReponse ?
+                                                    null
+                                                    :
+                                                    <SubmitButton
+                                                        type="submit"
+                                                        value="Continuar"
+                                                    />
+                                            }
                                         </>
                                     );
                                 default:
@@ -130,9 +171,6 @@ export default function FormChat(props: Props) {
                     }
                 </form>
             </ContentForm>
-
-
-
         </ContentFormChat>
     );
 };

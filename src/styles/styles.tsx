@@ -34,6 +34,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 `;
 
 const SubmitButton = styled.input`
+cursor: pointer;
 border-radius: 20px;
 display: flex;
 justify-self: center;
@@ -87,15 +88,15 @@ height: 100%;
 padding-left: 50px;
 padding-right: 50px;
 overflow-y: scroll;
-background-color:${colors.secondary};
+background-color: ${colors.secondary};
 `
 
 const ContentFormChat = styled.div`
 display: flex;
 flex-direction: row;
 height: fit-content;
-margin-bottom: 20px;
-margin-top: 10px;
+margin-bottom: 40px;
+margin-top: 20px;
 `
 
 const ImageAdmin = styled.img`
@@ -114,6 +115,7 @@ padding: 15px;
 padding-left: 30px;
 padding-right: 30px;
 background-color: ${colors.blue};
+border-radius: 10px;
 `;
 
 const InputRegister = styled.input`
@@ -122,6 +124,43 @@ height: 20px;
 margin-top: 10px;
 margin-bottom: 5px;
 padding: 5px;
+`;
+
+const ResponseUser = styled.div`
+display: flex;
+flex-direction: column;
+width: 200px;
+padding: 10px;
+margin-bottom: 100px;
+background-color: ${colors.green};
+color: white;
+font-size: 1.1rem;
+border-radius: 5px;
+`;
+
+const CardAllInfo = styled.div`
+display: flex;
+flex-direction: column;
+width: 80%;
+padding: 10px;
+margin-bottom: 100px;
+background-color: ${colors.green};
+font-size: 1.5rem;
+`;
+
+const Button = styled.button`
+cursor: pointer;
+border-radius: 5px;
+display: flex;
+margin-top: 20px;
+background-color: ${colors.primary};
+width: 100px;
+height: 40px;
+border-width: 0px;
+color: white;
+justify-content: center;
+align-items: center;
+font-weight: bold;
 `;
 
 export {
@@ -137,5 +176,8 @@ export {
     ContentFormChat,
     ImageAdmin,
     ContentForm,
-    InputRegister
+    InputRegister,
+    ResponseUser,
+    CardAllInfo,
+    Button
 }

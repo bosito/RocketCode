@@ -8,3 +8,8 @@
     width: 100%;
     height: 100vh;
 }
+
+.aling_self_center{
+    justify-self: center;
+    align-self: center;
+}

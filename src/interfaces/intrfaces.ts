@@ -1,7 +1,9 @@
 export interface Cuestions{
+    id: number
     cuestion: string;
     isResponse: boolean;
     focuse: boolean;
+    responce?: string;
 };
 
 export interface DataUser{
