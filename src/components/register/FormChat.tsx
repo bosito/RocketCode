@@ -16,25 +16,27 @@ export default function FormChat(props: Props) {
     const { cuestion, type, isReponse, focuse, handleResponse, item } = props;
 
     const [birthdays, setBirthdays] = useState<string>('');
-    const [dataContact, setDataContact] = useState<DataContact>({ email: '', phone: '' });
 
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
+    const [email, setEmail] = useState<string>('');
+    const [phone, setPhone] = useState<string>('');
 
-    const [nombre, setNombre] = useState('');
-    const [apellidoMaterno, setApellidoMaterno] = useState('');
-    const [apellidoPaterno, setApellidoPaterno] = useState('');
-    const [segundoNombre, setSegundoNombre] = useState('');
+    const [nombre, setNombre] = useState<string>('');
+    const [apellidoMaterno, setApellidoMaterno] = useState<string>('');
+    const [apellidoPaterno, setApellidoPaterno] = useState<string>('');
+    const [segundoNombre, setSegundoNombre] = useState<string>('');
 
 
     const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault();
 
-        const data: DataUser = {
+        const data = {
             nombre: nombre,
+            email: email,
             apellido_materno: apellidoMaterno,
             apellido_paterno: apellidoPaterno,
-            segundo_nombre: segundoNombre
+            segundo_nombre: segundoNombre,
+            fecha_nacimiento: birthdays,
+            telefono: phone
         };
 
         item.isResponse = true;
